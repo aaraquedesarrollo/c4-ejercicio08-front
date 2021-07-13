@@ -1,12 +1,10 @@
-import { useHistory } from "react-router-dom";
+import { useRedirectToLogin } from "../hooks/useRedirectToLogin";
 
 export const PaginaInicio = (props) => {
-  const history = useHistory();
+  const redirectToLogin = useRedirectToLogin();
   const { logueado } = props;
 
-  if (!logueado) {
-    history.push("/login");
-  }
+  redirectToLogin(logueado);
 
   return (
     <div className="inicio row h-100">

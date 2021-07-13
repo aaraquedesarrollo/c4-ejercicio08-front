@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 export const PaginaLogin = (props) => {
+  const history = useHistory();
   const { setLogueado, apiURL } = props;
   const [username, setUsername] = useState("");
   const [contrasenya, setContrasenya] = useState("");
@@ -24,6 +26,7 @@ export const PaginaLogin = (props) => {
       const { token } = await resp.json();
       localStorage.setItem("token", token);
       setLogueado(true);
+      history.push("/inicio");
     } else {
       setError(true);
     }
