@@ -19,7 +19,7 @@ function App() {
             <PaginaInicio logueado={logueado} />
           </Route>
           <Route path="/listado" exact>
-            <PaginaListado />
+            <PaginaListado logueado={logueado} apiURL={apiURL} />
           </Route>
           <Route path="/login" exact>
             <PaginaLogin setLogueado={setLogueado} apiURL={apiURL} />
